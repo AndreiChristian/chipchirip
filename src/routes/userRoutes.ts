@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/users");
 
-router.post("/users")
+router.post("/users");
 
 router.get("users/:id");
 
@@ -13,4 +13,4 @@ router.delete("users/:id");
 
 router.patch("users/:id");
 
-
+export default router;
