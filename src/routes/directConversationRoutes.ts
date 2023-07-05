@@ -2,4 +2,10 @@ import { Router } from "express";
 
 const router = Router();
 
-export default router
+router.post("/conversations");
+
+router.get("/conversations/:conversationsId");
+
+router.get("/conversations/user/:conversationsId");
+
+export default router;
