@@ -3,11 +3,14 @@ import express from "express";
 import { db } from "./db";
 
 import { config } from "dotenv";
+import corsMiddleware from "./middleware";
 
 config();
 
 const app = express();
 const port = process.env.PORT || 3333;
+
+app.use(corsMiddleware);
 
 app.use(express.json());
 
