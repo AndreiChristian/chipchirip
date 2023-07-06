@@ -23,9 +23,11 @@ export const register = async (
     const { rows } = await db.query(newUserQuery, values);
     const user = rows[0];
 
-    const token = generateToken;
+    console.log(user);
 
-    res.status(200).send({ auth: true, token: token });
+    const token = generateToken(user.id!);
+
+    res.status(200).send({ auth: true, token: token, user: user });
   } catch (err) {
     console.error(err);
     res.status(500).send("There was a problem registering the user.");
@@ -57,7 +59,7 @@ export const login = async (
 
     const token = generateToken(rows[0].id);
 
-    res.status(200).json({ auth: true, token: token });
+    res.status(200).json({ auth: true, token: token, user: rows[0] });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error on the server.");

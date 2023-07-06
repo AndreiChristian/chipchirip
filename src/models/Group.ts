@@ -4,4 +4,3 @@ export interface Group {
   created_at: Date;
 }
 
-

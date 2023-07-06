@@ -1,8 +1,9 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 
 import { config } from "dotenv";
-import corsMiddleware from "./middleware";
+// import corsMiddleware from "./middleware";
 import Router from "./routes/index";
+import corsMiddleware from "./middleware";
 
 config();
 
