@@ -1,11 +1,8 @@
 import { Router } from "express";
+import { postMessage } from "../controllers/messageControllers";
 
 const router = Router();
 
-// Messages:
-
-// POST /messages: Send a new message (this would require a conversation ID or group ID)
-
-router.post("/messages");
+router.post("/messages", postMessage);
 
 export default router;

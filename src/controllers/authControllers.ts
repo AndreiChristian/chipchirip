@@ -39,6 +39,9 @@ export const login = async (
   res: Response,
   next: NextFunction
 ) => {
+
+  console.log("loggin in")
+
   const { email, password, username } = req.body;
 
   const findUserQuery = `SELECT * FROM users WHERE email = $1`;

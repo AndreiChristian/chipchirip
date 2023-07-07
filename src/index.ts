@@ -1,5 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 
+import { Server } from "socket.io";
+
 import { config } from "dotenv";
 // import corsMiddleware from "./middleware";
 import Router from "./routes/index";
@@ -20,6 +22,17 @@ app.get("/", async (req, res) => {
   res.json({ Hello: "World" });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+const server = app.listen(port, () => {
+  console.log(`Example app listening at port :${port}`);
 });
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:4200",
+  },
+});
+
+io.on("connection", (socket) => {
+  console.log("Hello");
+});
+

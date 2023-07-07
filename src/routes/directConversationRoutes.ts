@@ -1,11 +1,13 @@
 import { Router } from "express";
+import { getAllUserConversations, getOneConversation, postConversation } from "../controllers/directConversationControllers";
 
 const router = Router();
 
-router.post("/conversations");
+router.post("/conversations", postConversation);
 
-router.get("/conversations/:conversationsId");
+router.get("/conversations/user/:userId", getAllUserConversations);
 
-// router.get("/conversations/user/:conversationsId");
+router.get("/conversations/:conversationsId", getOneConversation);
+
 
 export default router;
